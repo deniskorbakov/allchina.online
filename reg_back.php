@@ -1,10 +1,15 @@
 <?php
-error_reporting(E_ERROR);
+// error_reporting(E_ERROR);
 
+//input data
 $login = $_POST['login_input'];
 $email = $_POST['email_input'];
 $password = $_POST['password_input'];
 $password2 = $_POST['password_input2'];
+
+require 'phpmailer/PHPMailer.php';
+require 'phpmailer/SMTP.php';
+require 'phpmailer/Exception.php';
 
 
 
@@ -47,7 +52,8 @@ if (!empty($_POST['g-recaptcha-response'])) {
 		$error = false;
 	} 
 }    
- 
+
+
 //проверка сложности пароля
 $number_password = preg_match('@[0-9]@', $password);
 $uppercase_password = preg_match('@[A-Z]@', $password);
@@ -110,12 +116,54 @@ else {
     // Output: 54esmdr0qf 
     $token = substr(str_shuffle($permitted_chars), 0, 10);
 
+    $message = "<a href='https://allchina.online/backreg.ru.php'>Переход на страницу</a>";
+
+    $title = "Код подтверждения сайта allchina.online";
+    $body = "
+    <b>Сообщение:</b><br> Ваш код подтверждения: $token перейдите по ссылке чтоб подтвердить потчу - $message
+    ";
+
+    // Настройки PHPMailer
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
+    try {
+        $mail->isSMTP();   
+        $mail->CharSet = "UTF-8";
+        $mail->SMTPAuth   = true;
+        //$mail->SMTPDebug = 2;
+        $mail->Debugoutput = function($str, $level) {$GLOBALS['status'][] = $str;};
+
+        // Настройки вашей почты
+        $mail->Host       = 'smtp.mail.ru'; // SMTP сервера вашей почты
+        $mail->Username   = 'helper-allchina@mail.ru'; // Логин на почте
+        $mail->Password   = 'BirE1Y0AdvGnNL6xcrcF'; // Пароль на почте
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port       = 465;
+        $mail->setFrom('helper-allchina@mail.ru', 'allchina'); // Адрес самой почты и имя отправителя
+
+        // Получатель письма
+        $mail->addAddress($email);
+
+
+    // Отправка сообщения
+    $mail->isHTML(true);
+    $mail->Subject = $title;
+    $mail->Body = $body;    
+
+    // Проверяем отравленность сообщения
+    if ($mail->send()) {$result = "success";} 
+    else {$result = "error";}
+
+    } catch (Exception $e) {
+        $result = "error";
+        $status = "Сообщение не было отправлено. Причина ошибки: {$mail->ErrorInfo}";
+    }
+
     $status = 0;
 
     $mysql->query("INSERT INTO `users` (`login`,`email`,`password`,`token`,`status`) VALUES ('$login','$email','$password','$token','$status')");
     $mysql->close();
 
-    mail($email,'Регистрация',"Вставте этот код: $token перейдя по ссылке - https://allchina.online/backreg.ru.php");
+    // mail($email,'Регистрация',"Вставте этот код: $token перейдя по ссылке - https://allchina.online/backreg.ru.php");
 
     header("Refresh:0; url=backreg.ru.php");
   }
@@ -127,55 +175,5 @@ else {
 
 
 
-// //проверка на пустоту и введенных данных
-// if(strlen($login) <= 5 || strlen($login) > 15) {
-//   echo "<h3>Короткий логин длинна должна быть больше 5 символов и не больше 15 символов!!</h3>" . header("refresh:3;url=reg.php");
-// }
-// else if(strlen($password) < 8 || strlen($password) > 20) {
-//   echo "<h3>Короткий пароль, должен быть не менее 8 символов и не больше 20 символов!</h3>".header("Refresh:3; url=reg.php");
-// }
-// else if(strlen($email) < 10) {
-//   echo "<h3>Не полный адрес почты!</h3>".header("Refresh:3; url=reg.php");
-// }
-// else if($password != $password2) {
-//   echo "<h3>Пароли не совпадают</h3>".header("Refresh:3; url=reg.php");
-// }
-// else if($login == $password) {
-//   echo "<h3>Логин и пароль не должны совпадать</h3>".header("Refresh:3; url=reg.php");
-// }
-// else {
-//   if ( $_POST['checkbox'] == '') {
-//     echo "<h3>Вы не согласились c соглашеним пользователя!</h3>".header("Refresh:3; url=reg.php");
-//   }
-//   else {
-//     if ($count !=0) {
-//       echo "<h3>Ошибка регистрации! Такой логин уже существет!</h3>".header("Refresh:3; url=reg.php");
-      
-//   }
-//   else if($count2 != 0) {
-//     echo "<h3>Ошибка регистрации! Такая почта уже существет!</h3>".header("Refresh:3; url=reg.php");
-//   }
-//   else if($error) {
-//     echo "<h3>Не Заполнена каптча</h3>" . header("refresh:3;url=reg.php");
-//   }
-//   else{
-//     $password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12,]);
-
-//     $permitted_chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-//     // Output: 54esmdr0qf 
-//     $token = substr(str_shuffle($permitted_chars), 0, 10);
-
-//     $status = 0;
-
-//     $mysql->query("INSERT INTO `users` (`login`,`email`,`password`,`token`,`status`) VALUES ('$login','$email','$password','$token','$status')");
-//     $mysql->close();
-
-//     mail($email,'Регистрация',"Вставте этот код: $token перейдя по ссылке - https://allchina.online/backreg.ru.php");
-
-//     header("Refresh:0; url=backreg.ru.php");
-//   }
-  
-//   }
-// }
 
 ?>
