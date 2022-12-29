@@ -19,18 +19,17 @@
     ?></h3>
 </div>
 
+<div class="container">
+    
+    <a href="article_add.php" class="nav-link px-8 link-secondary fw-bolder"><h3>Создать статью</h3></a>
+    
+</div>
+
 <form action="exit.php" method="POST">
 <div class="container mt-3">
     <input type="submit" name="appetizer_button" value="Выйти" class="btn btn-outline-danger">
 </div>
 </form>
-
-
-
-
-
-
-
 
 <?php include_once 'footer.php' ?>
 
