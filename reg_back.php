@@ -94,6 +94,9 @@ else if($password != $password2) {
 else if($login == $password) {
   echo "<h3>Логин и пароль не должны совпадать</h3>".header("Refresh:3; url=reg.php");
 }
+else if($password == $email) {
+  echo "<h3>Пароль и почта не должны совпадать</h3>".header("Refresh:3; url=reg.php");
+}
 else {
   if ( $_POST['checkbox'] == '') {
     echo "<h3>Вы не согласились c соглашеним пользователя!</h3>".header("Refresh:3; url=reg.php");
@@ -163,7 +166,6 @@ else {
     $mysql->query("INSERT INTO `users` (`login`,`email`,`password`,`token`,`status`) VALUES ('$login','$email','$password','$token','$status')");
     $mysql->close();
 
-    // mail($email,'Регистрация',"Вставте этот код: $token перейдя по ссылке - https://allchina.online/backreg.ru.php");
 
     header("Refresh:0; url=backreg.ru.php");
   }
