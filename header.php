@@ -8,6 +8,7 @@
       <li><a href="index.php" class="nav-link px-8 link-secondary fw-bolder">Главная</a></li>
       <li><a href="china_calendar.php" class="nav-link px-2 link-dark">Китайский календарь</a></li>
       <li><a href="faq.php" class="nav-link px-2 link-dark">О нас</a></li>
+      <li><a href="article.php" class="nav-link px-2 link-dark">Статьи</a></li>
     </ul>
 <?php
 error_reporting(E_ERROR);
@@ -15,7 +16,6 @@ if ($_COOKIE['user'] != NULL) : ?>
     <div class="col-md-3 text-end">
         <a class="btn btn-outline-success" href="user_account.php" role="button">Кабинет пользователя</a>
     </div>
-
 <?php else : ?>
     <div class="col-md-3 text-end">
         <a class="btn btn-outline-success" href="reg.php" role="button">Зарегистрироваться</a>
