@@ -1,5 +1,5 @@
 <?php
-// error_reporting(E_ERROR);
+error_reporting(E_ERROR);
 
 //input data
 $login = $_POST['login_input'];
@@ -19,7 +19,7 @@ include_once 'connectionBD.php';
 $query = "SELECT * FROM users WHERE login='$login'";
  
 //Отправляем запрос в БД (у меня в примере для подключения используется переменная $mysqli, подставьте свою)
-$result = mysqli_query($mysql, $query) or die(mysqli_error($mysqli));
+$result = mysqli_query($mysql, $query) or die(mysqli_error($mysql));
  
 // подсчитываем сколько получили рядов выборки и записываем в переменную $count
 $count = mysqli_num_rows($result);
@@ -30,7 +30,7 @@ $count = mysqli_num_rows($result);
 $query2 = "SELECT * FROM `users` WHERE `email`='$email'";
  
 //Отправляем запрос в БД (у меня в примере для подключения используется переменная $mysqli, подставьте свою)
-$result2 = mysqli_query($mysql, $query2) or die(mysqli_error($mysqli));
+$result2 = mysqli_query($mysql, $query2) or die(mysqli_error($mysql));
  
 // подсчитываем сколько получили рядов выборки и записываем в переменную $count
 $count2 = mysqli_num_rows($result2);
@@ -116,7 +116,7 @@ else {
     $password = password_hash($password, PASSWORD_BCRYPT, ['cost' => 12,]);
 
     $permitted_chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    // Output: 54esmdr0qf 
+
     $token = substr(str_shuffle($permitted_chars), 0, 10);
 
     $message = "<a href='https://allchina.online/backreg.ru.php'>Переход на страницу</a>";
@@ -136,12 +136,12 @@ else {
         $mail->Debugoutput = function($str, $level) {$GLOBALS['status'][] = $str;};
 
         // Настройки вашей почты
-        $mail->Host       = 'smtp.mail.ru'; // SMTP сервера вашей почты
-        $mail->Username   = 'helper-allchina@mail.ru'; // Логин на почте
-        $mail->Password   = 'BirE1Y0AdvGnNL6xcrcF'; // Пароль на почте
+        $mail->Host       = 'smtp.mail.ru'; 
+        $mail->Username   = 'helper-allchina@mail.ru'; 
+        $mail->Password   = 'BirE1Y0AdvGnNL6xcrcF'; 
         $mail->SMTPSecure = 'ssl';
         $mail->Port       = 465;
-        $mail->setFrom('helper-allchina@mail.ru', 'allchina'); // Адрес самой почты и имя отправителя
+        $mail->setFrom('helper-allchina@mail.ru', 'allchina'); 
 
         // Получатель письма
         $mail->addAddress($email);
@@ -166,6 +166,7 @@ else {
     $mysql->query("INSERT INTO `users` (`login`,`email`,`password`,`token`,`status`) VALUES ('$login','$email','$password','$token','$status')");
     $mysql->close();
 
+    setcookie('email', $email, time() + (10 * 365 * 24 * 60 * 60), "/");
 
     header("Refresh:0; url=backreg.ru.php");
   }
