@@ -23,12 +23,12 @@ $query = mysqli_query($mysql, "SELECT * FROM article ORDER BY `id` DESC");
 while ($row = mysqli_fetch_assoc($query)):
     ?>  
         <div class="form-group col-md-8 m-2 mx-auto">
-        <h1 class="text-center">Пост "<?=$row['title'];?>"</h1>
+        <h1 class="text-center">Cтатья - <?=$row['title'];?></h1>
         <article class="alert alert-success">
             <h3><?=$row['description'];?></h3>
-            <p><?=$row['textarea'];?></p>
             <em>Дата публикации: <?=$row['data_article'];?></em><br>
             <em>Автор: <a href=""><?=$row['avtor'];?></a></em><br>
+            <a class="btn btn-success mt-3" href="article_view.php?id=<?=$row['id'];?>">Перейти к прочтению</a>
         </article>
         </div>
     <?php
