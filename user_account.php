@@ -17,11 +17,15 @@
     <h3>Пользователь: <?php
     echo $_COOKIE["user"];
     ?></h3>
+
+    <h3>Почта: <?php
+    echo $_COOKIE["email"];
+    ?></h3>
 </div>
 
 <div class="container">
     
-    <a href="article_add.php" class="nav-link px-8 link-secondary fw-bolder"><h3>Создать статью</h3></a>
+    <a href="article_add.php" class="nav-link px-8 link-secondary fw-bolder mt-5"><h3>Создать статью</h3></a>
     
 </div>
 
