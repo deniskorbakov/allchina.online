@@ -1,5 +1,7 @@
 {
     "require": {
-        "phpmailer/phpmailer": "^5.2"
+        "phpmailer/phpmailer": "^5.2",
+        "imangazaliev/didom": "^1.18",
+        "guzzlehttp/guzzle": "^5.3"
     }
 }
