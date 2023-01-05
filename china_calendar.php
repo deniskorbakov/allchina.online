@@ -32,7 +32,10 @@
 error_reporting(E_ERROR);
 $input_number = $_POST['years'];
 
-if(strlen($input_number) < 4 || strlen($input_number) > 4) {
+$number_verify = preg_match('@[0-9]@', $input_number);
+$specialChars_verify = preg_match('@[^\w]@', $input_number);
+
+if(strlen($input_number) != 4 || !$number_verify || $specialChars_verify) {
     echo '<div class="alert alert-success" role="alert">Вы не ввели данные либо введнный год не коректный!</h3></div>';
 }
 else {
