@@ -3,9 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>О нас</title>
+    <meta name="description" content="О нас - здесь располагается наша информация о месторасположении, контактная информация, информация о данном сайте">
+    <title>О нас - месторасположение, контактная информация, адрес, ознакомление</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="icon" href="img\icon.png">
+    <link rel="icon" href="img/favicon.svg">
     <link rel="stylesheet" href="css\style.css">
 </head>
 <body class="d-flex flex-column min-vh-100">

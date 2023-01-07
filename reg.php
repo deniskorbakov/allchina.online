@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Регистрация</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="icon" href="img\icon.png">
+    <link rel="icon" href="img/favicon.svg">
     <link rel="stylesheet" href="css\style.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -28,7 +28,7 @@
   </div>
   <div class="form-group col-md-8 m-2 mx-auto">
     
-    <label>Пароль(должен состоять из заглавных, строчных, числовых, и спец)</label>
+    <label>Пароль(должен состоять из заглавных, строчных, числовых, и спец символов)</label>
 
     <input name="password_input"type="password" class="form-control" id="typepass" placeholder="Введите пароль">
     <div class="message text-danger"></div>

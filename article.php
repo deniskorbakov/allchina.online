@@ -3,9 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Статьи</title>
+    <meta name="keywords" content="Китай, статьи, информация">
+    <meta name="description" content="Китай – статьи и полезная информация, которые помогут узнать новое и спланировать путешествие">
+    <title>Статьи - статьи про китай, культуру, историю, красоты, опыт</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="icon" href="img\icon.png">
+    <link rel="icon" href="img/favicon.svg">
     <link rel="stylesheet" href="css\style.css">
 </head>
 <body class="d-flex flex-column min-vh-100">

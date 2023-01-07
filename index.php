@@ -3,9 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Все о Китае</title>
+    <meta name=”description” content="Общая информация о Китая. Города Китая. Население Китая. Мусор в Китая. Кухня и культура. Красивый Китай и животный мир. Китайский язык. Религия и культура.Море в Китае. ">
+    <meta name="keywords" content="Китай, описание, страна, фото, видео, достопримечательности, города Китая, на карте, география, культура, кухня, население, язык, история">
+    <title>allchina.online - Китай, Всё о китае, Культура китая, Интересные факты</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="icon" href="img\icon.png">
+    <link rel="icon" href="img/favicon.svg">
     <link rel="stylesheet" href="css\style.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -86,14 +88,25 @@
    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(91812612, "init", {
+   ym(91967516, "init", {
         clickmap:true,
         trackLinks:true,
-        accurateTrackBounce:true
+        accurateTrackBounce:true,
+        webvisor:true
    });
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/91812612" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript><div><img src="https://mc.yandex.ru/watch/91967516" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DLK3WBFPJ4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-DLK3WBFPJ4');
+</script>
 
 <?php include_once 'footer.php' ?>
 
