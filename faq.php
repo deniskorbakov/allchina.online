@@ -18,7 +18,11 @@
 
 
 <div class="container">
-    <h3>Мы находимся здесь: </h3>
+    <h3 class="mt-3">Контактные данные:</h3>
+    <p class="mt-3">Мессенджер для связи - <a class="text-info" href="https://vk.com/deniskorbakov">Вконтакте</a></p>
+    <p>Почта - helper-allchina@mail.ru</p>
+
+    <h5 class="mt-5">Мы находимся здесь: </h5>
     <p>Россия, Ростов-на-Дону, проспект Королёва, 12А</p>
 </div>
 <br>
