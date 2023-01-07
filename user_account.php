@@ -24,10 +24,43 @@
 </div>
 
 <div class="container">
-    
     <a href="article_add.php" class="nav-link px-8 link-secondary fw-bolder mt-5"><h3>Создать статью</h3></a>
-    
 </div>
+
+<div class="container">
+    <a href="№" class="nav-link px-8 link-secondary fw-bolder mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><h3>Обратная связь</h3></a>
+
+<!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Форма обратной связи</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                    <div class="modal-body">
+                        <form action="send_mail.php" method="post">
+                            <div class="form-group col-md-8 m-2 mx-auto">
+                                <label >Кратко опишите проблема</label>
+                                <input name="title_input" type="text" class="form-control" placeholder="Введите Текст">
+                            </div>
+        
+                            <div class="form-group col-md-8 m-2 mx-auto">
+                                <label >Опишите проблему в деталях</label>
+                                <textarea name="textarea_input" type="textarea" class="form-control" placeholder="Введите Текст"></textarea>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Выйти</button>
+                                <button type="submit" class="btn btn-success">Отправить</button>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <form action="exit.php" method="POST">
 <div class="container mt-3">
