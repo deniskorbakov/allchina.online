@@ -14,13 +14,8 @@
 <?php include_once 'header.php' ?>
 
 <div class="container">
-    <h3>Пользователь: <?php
-    echo $_COOKIE["user"];
-    ?></h3>
-
-    <h3>Почта: <?php
-    echo $_COOKIE["email"];
-    ?></h3>
+    <h3>Пользователь: <?php echo $_COOKIE["user"]; ?>
+    <h3>Почта: <?php echo $_COOKIE["email"]; ?></h3>
 </div>
 
 <div class="container">
@@ -39,6 +34,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                     <div class="modal-body">
+
                         <form action="send_mail.php" method="post">
                             <div class="form-group col-md-8 m-2 mx-auto">
                                 <label >Кратко опишите проблема</label>
@@ -55,6 +51,48 @@
                                 <button type="submit" class="btn btn-success">Отправить</button>
                             </div>
                         </form>
+                        
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <a href="#" class="nav-link px-8 link-secondary fw-bolder mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h3 class="text-danger">Сбросить пароль</h3></a>
+
+<!-- Modal -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Сброс пароля</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                    <div class="modal-body">
+
+                        <form action="send_password.php" method="post">
+                            <div class="form-group col-md-8 m-2 mx-auto">
+                                <label>Введите старый пароль</label>
+                                <input name="old_password_input" type="password" class="form-control" placeholder="Введите Текст">
+                            </div>
+        
+                            <div class="form-group col-md-8 m-2 mx-auto">
+                                <label>Введите новый пароль</label>
+                                <input name="password1_input" type="password" class="form-control" placeholder="Введите Пароль">
+                            </div>
+
+                            <div class="form-group col-md-8 m-2 mx-auto">
+                                <label>Повторите новый пароль</label>
+                                <input name="password2_input" type="password" class="form-control" placeholder="Введите Пароль">
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Выйти</button>
+                                <button type="submit" class="btn btn-success">Отправить</button>
+                            </div>
+                        </form>
+                        
                     </div>
             </div>
         </div>
