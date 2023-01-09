@@ -34,7 +34,7 @@ if(strlen($login) <= 5){
     echo "<h3>Введите логин!</h3>" . header("refresh:3;url=aut.php");
 }
 else if(strlen($password) < 8) {
-    echo "<h3>Введите пароль!</h3>". var_dump($password);//header("refresh:3;url=aut.php");
+    echo "<h3>Введите пароль!</h3>". var_dump($password);
 }
 else if($error) {
     echo "<h3>Не Заполнена каптча</h3>" . header("refresh:3;url=aut.php");
@@ -69,35 +69,3 @@ if($result = $mysql->query($sql)){
 }
 
 ?>
-
-
-
-<!-- $query = "SELECT * FROM `users` WHERE `login` = '$login' AND `password` = '$password'";
- 
-//Отправляем запрос в БД (у меня в примере для подключения используется переменная $mysqli, подставьте свою)
-$result = mysqli_query($mysql, $query) or die(mysqli_error($mysqli));
-
- 
-// подсчитываем сколько получили рядов выборки и записываем в переменную $count
-$count = mysqli_num_rows($result);
- 
-
-
-if($login <= 5){
-    echo "<h3>Введите логин!</h3>". header("refresh:3;url=aut.php");
-}
-else if($password < 8) {
-    echo "<h3>Введите пароль!</h3>".header("refresh:3;url=aut.php");
-}
-else{
-    if ($count == 0) {
-
-        echo "<h3>Ошибка регистрации! Такого пользователя не существует или неправильно ввели данные</h3".header("Refresh:3; url=aut.php");
-
-    }
-    else if ($count == 1) {
-        setcookie('user', $login, time() + (10 * 365 * 24 * 60 * 60), "/");
-        $mysql->close();
-        header("Refresh:0; url=user_account.php");
-    }
-} -->
