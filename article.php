@@ -20,7 +20,24 @@
 
 include_once "connectionBD.php";
 
-$query = mysqli_query($mysql, "SELECT * FROM article ORDER BY `id` DESC");
+if (isset($_GET['page'])){
+    $page = $_GET['page'];
+ }else $page = 1;
+
+$kol = 3;
+$art = ($page * $kol) - $kol;
+
+if (isset($_GET['page'])){
+    $page = $_GET['page'];
+ }else $page = 1;
+
+$res = mysqli_query($mysql,"SELECT COUNT(*) FROM `article`");
+$row = mysqli_fetch_row($res);
+$total = $row[0];
+
+$str_pag = ceil($total / $kol);
+
+$query = mysqli_query($mysql, "SELECT * FROM article ORDER BY `id` DESC LIMIT $art,$kol");
 
 while ($row = mysqli_fetch_assoc($query)):
     ?>  
@@ -36,6 +53,24 @@ while ($row = mysqli_fetch_assoc($query)):
     <?php
         endwhile;
     ?>
+
+<div class="form-group col-md-8 m-2 mx-auto">
+    <div class="position-relative mt-5">
+        <div class="position-absolute bottom-0 end-0">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <?php
+                        for ($i = 1; $i <= $str_pag; $i++){
+                            echo "<li class=page-item><a class=page-link href=article.php?page=".$i.">".$i."</a></li>";
+                        }
+                    ?>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
 
 
 <?php include_once 'footer.php' ?>
