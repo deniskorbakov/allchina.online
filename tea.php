@@ -46,7 +46,7 @@
             ?>      
                     <div class="col" style="height: 450px;">
                         <div class="card shadow-sm">
-                            <img class="bd-placeholder-img card-img-top" src="img/tea2.jpg">
+                            <img class="bd-placeholder-img card-img-top" loading="lazy" src="img/tea2.jpg">
                             <div class="card-body" style="height: 160px;">
                                 <p class="card-text" style="height: 70px;"><?=$item->find('a')[0]->attr('title');?></p>
                                 <div class="d-flex justify-content-between align-items-center">
