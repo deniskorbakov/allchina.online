@@ -17,7 +17,7 @@
 
 
 
-<div class="container">
+<div class="container mt-5">
     <h3 class="mt-3">Контактные данные:</h3>
     <p class="mt-3">Мессенджер для связи - <a class="text-info" href="https://vk.com/deniskorbakov">Вконтакте</a></p>
     <p>Почта - helper-allchina@mail.ru</p>

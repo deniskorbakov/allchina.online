@@ -41,14 +41,19 @@ $query = mysqli_query($mysql, "SELECT * FROM article ORDER BY `id` DESC LIMIT $a
 
 while ($row = mysqli_fetch_assoc($query)):
     ?>  
-        <div class="form-group col-md-8 m-2 mx-auto">
+
+        <div class="form-group col-md-8 m-2 mx-auto mt-5">
         <h1 class="text-center">Cтатья - <?=$row['title'];?></h1>
-        <article class="alert alert-success">
-            <h3><?=$row['description'];?></h3>
-            <em>Дата публикации: <?=$row['data_article'];?></em><br>
-            <em>Автор: <a href=""><?=$row['avtor'];?></a></em><br>
-            <a class="btn btn-success mt-3" href="article_view.php?id=<?=$row['id'];?>">Перейти к прочтению</a>
+        <div class="container">
+        <article class="alert alert-success mt-3" role="alert">
+            <div class="container">
+                <h3><?=$row['description'];?></h3>
+                <em>Дата публикации: <?=$row['data_article'];?></em><br>
+                <em>Автор: <a href=""><?=$row['avtor'];?></a></em><br>
+                <a class="btn btn-success mt-3" href="article_view.php?id=<?=$row['id'];?>">Перейти к прочтению</a>
+            </div>
         </article>
+        </div>
         </div>
     <?php
         endwhile;

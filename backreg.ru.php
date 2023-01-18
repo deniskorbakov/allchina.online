@@ -14,7 +14,7 @@
 <?php include_once 'header.php' ?>
 
 <form action="backreg.ru_back.php" method="POST">
-<div class="form-group col-md-8 m-2 mx-auto">
+<div class="form-group col-md-8 m-2 mx-auto mt-5">
     <label>Ваш код был отправлен вам на почту - вставте в эту форму высланный вам код</label>
     <input name="email_code" type="text" class="form-control" placeholder="Введите код с почты">
     <br>
