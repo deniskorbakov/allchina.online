@@ -16,7 +16,7 @@
 
 <script src="https://www.google.com/recaptcha/api.js"></script>
 
-<form action="aut_back.php" method="POST">
+<form action="aut_back.php" method="POST" class="container-fluid mt-5">
 <div class="form-group col-md-8 m-2 mx-auto">
     <label for="exampleInputPassword1">Логин</label>
     <input  name="login_input" type="login" class="form-control" id="exampleInputPassword1" placeholder="Введите логин">

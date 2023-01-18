@@ -46,6 +46,7 @@ if($result = $mysql->query($sql)){
     $userlogin = $row["login"];
     $userpassword = $row["password"]; 
     $userstatus = $row["status"];
+    $userEmail = $row["email"];
     }
     if($userstatus != 1) {
         echo "<h3>Ваш аккаунт не подтвержден по почте</h3>".header("refresh:3;url=aut.php");
@@ -54,6 +55,7 @@ if($result = $mysql->query($sql)){
         if(password_verify($password, $userpassword)) {
 
             setcookie('user', $login, time() + (10 * 365 * 24 * 60 * 60), "/");
+            setcookie('email', $userEmail, time() + (10 * 365 * 24 * 60 * 60), "/");
             $mysql->close();
             header("Refresh:0; url=user_account.php");
         }

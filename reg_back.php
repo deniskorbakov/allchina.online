@@ -138,14 +138,13 @@ else {
         // Настройки вашей почты
         $mail->Host       = 'smtp.mail.ru'; 
         $mail->Username   = 'helper-allchina@mail.ru'; 
-        $mail->Password   = 'BirE1Y0AdvGnNL6xcrcF'; 
+        $mail->Password   = 'a1QC4Yyve0eSsVQBi6xB'; 
         $mail->SMTPSecure = 'ssl';
         $mail->Port       = 465;
         $mail->setFrom('helper-allchina@mail.ru', 'allchina'); 
 
         // Получатель письма
         $mail->addAddress($email);
-
 
     // Отправка сообщения
     $mail->isHTML(true);

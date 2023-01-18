@@ -16,7 +16,7 @@
 
 <script src="https://www.google.com/recaptcha/api.js"></script>
 
-<form action="reg_back.php" method="POST">
+<form action="reg_back.php" method="POST" class="container-fluid mt-5">
 <div class="form-group col-md-8 m-2 mx-auto">
     <label for="exampleInputPassword1">Логин</label>
     <input name="login_input"type="login" class="form-control" id="exampleInputPassword1" placeholder="Введите логин">
@@ -28,7 +28,7 @@
   </div>
   <div class="form-group col-md-8 m-2 mx-auto">
     
-    <label>Пароль(должен состоять из заглавных, строчных, числовых, и спец символов)</label>
+    <label>Пароль</label>
 
     <input name="password_input"type="password" class="form-control" id="typepass" placeholder="Введите пароль">
     <div class="message text-danger"></div>

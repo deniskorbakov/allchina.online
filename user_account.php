@@ -13,7 +13,7 @@
 <!-- Hadear -->
 <?php include_once 'header.php' ?>
 
-<div class="container">
+<div class="container mt-5">
     <h3>Пользователь: <?php echo $_COOKIE["user"]; ?>
     <h3>Почта: <?php echo $_COOKIE["email"]; ?></h3>
 </div>
@@ -101,7 +101,7 @@
 
 
 <form action="exit.php" method="POST">
-<div class="container mt-3">
+<div class="container mt-5">
     <input type="submit" name="appetizer_button" value="Выйти" class="btn btn-outline-danger">
 </div>
 </form>
