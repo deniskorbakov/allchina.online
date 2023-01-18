@@ -1,4 +1,4 @@
-<div class="container-fluid p-3 p-md-5 bg-secondary bg-gradient bg-opacity-100">
+<div class="container-fluid p-3 p-md-5 bg-secondary bg-gradient bg-opacity-75">
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
