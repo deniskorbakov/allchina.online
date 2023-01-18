@@ -15,12 +15,12 @@
 <!-- Hadear -->
 <?php include_once 'header.php' ?>
 
-<div class="position-relative overflow-hidden p-3 p-md-5 m-md-10 text-left bg-secondary bg-success bg-gradient bg-opacity-100">
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-10 text-left bg-success bg-gradient bg-opacity-75">
     <div class="col-md-6 p-lg-10 mx-auto my-5">
       <h1 class="display-3 fw-normal">Культура Китая</h1>
       <p class="lead fw-normal">Культура Китая — одна из самых древних и самобытных в мире. Культура Китая оказала большое влияние
          на развитие культуры многочисленных соседних народов, населявших обширные территории позднейших Монголии, Тибета, Индокитая, Кореи и Японии.</p>
-      <a class="btn btn-light" href="https://ru.wikipedia.org/wiki/Культура_Китая">Познакомиться поближе</a>
+      <a class="btn btn-success" href="https://ru.wikipedia.org/wiki/Культура_Китая">Познакомиться поближе</a>
     </div>
     <div class="product-device shadow-sm d-none d-md-block"></div>
     <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>

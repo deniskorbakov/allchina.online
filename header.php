@@ -1,29 +1,53 @@
-<div class="container">
-  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-        <img src="img/favicon.svg" alt="" width="96" height="50">
-    </a>
 
-    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-      <li><a href="index.php" class="nav-link px-8 link-secondary fw-bolder">Главная</a></li>
-      <li><a href="china_calendar.php" class="nav-link px-2 link-dark">Китайский календарь</a></li>
-      <li><a href="tea.php" class="nav-link px-2 link-dark">Чай</a></li>
-      <li><a href="article.php" class="nav-link px-2 link-dark">Статьи</a></li>
-      <li><a href="faq.php" class="nav-link px-2 link-dark">О нас</a></li>
-    </ul>
-<?php
-error_reporting(E_ERROR);
-if ($_COOKIE['user'] != NULL) : ?>
-    <div class="col-md-3 text-end">
-        <a class="btn btn-outline-success" href="user_account.php" role="button">Кабинет пользователя</a>
-    </div>
-<?php else : ?>
-    <div class="col-md-3 text-end">
-        <a class="btn btn-outline-success" href="reg.php" role="button">Зарегистрироваться</a>
-        <a class="btn btn-success" href="aut.php" role="button">Авторизоваться</a>
-    </div>
-<?php endif; ?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container-fluid">
 
-</header>
-</div>
- 
+        <a class="navbar-brand" href="#">
+            <img src="img/favicon.svg" alt="" width="30" height="24">
+        </a>
+
+        <a class="navbar-brand" href="#">allchina</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav">
+                <li class="nav-item"><a href="index.php" class="nav-link">Главная</a></li>
+                <li class="nav-item"><a href="china_calendar.php" class="nav-link">Китайский календарь</a></li>
+                <li class="nav-item"><a href="tea.php" class="nav-link">Чай</a></li>
+                <li class="nav-item"><a href="article.php" class="nav-link">Статьи</a></li>
+                <li class="nav-item"><a href="faq.php" class="nav-link">О нас</a></li>
+
+            </ul>
+
+            <div class="collapse navbar-collapse " id="navbarNav"> 
+		        <ul class="navbar-nav ms-auto">
+                    <?php
+                        error_reporting(E_ERROR);
+
+                        if ($_COOKIE['user'] != NULL) : ?>
+                        
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="user_account.php">Кабинет пользователя</a></li>
+                            
+
+                        <?php else : ?>
+                        
+                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="aut.php">Авторизоваться</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="reg.php">Зарегистрироваться</a></li>
+                    
+                        <?php endif; ?>
+		        </ul>		  
+		    </div>
+        </div>
+    </div>   
+</nav>
+
+
+
+
+
+
