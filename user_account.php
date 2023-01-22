@@ -18,6 +18,7 @@
 $autUserLogin = $_COOKIE["user"];
 $autUserEmail = $_COOKIE["email"];
 
+
 include_once 'connectionBD.php';
 
 $sql = "SELECT * FROM `users` WHERE `login` = '$autUserLogin' AND `email` = '$autUserEmail'";
