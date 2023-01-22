@@ -13,6 +13,35 @@
 <!-- Hadear -->
 <?php include_once 'header.php' ?>
 
+<!-- проверка пользователя -->
+<?php
+$autUserLogin = $_COOKIE["user"];
+$autUserEmail = $_COOKIE["email"];
+
+include_once 'connectionBD.php';
+
+$sql = "SELECT * FROM `users` WHERE `login` = '$autUserLogin' AND `email` = '$autUserEmail'";
+
+    if($result = $mysql->query($sql)) {
+
+    foreach($result as $row) {
+
+    $userEmail = $row["email"];
+    $userLogin = $row["login"];
+    $status = $row["status"];
+
+    }
+
+    if($autUserLogin != $userLogin || $autUserEmail != $autUserEmail) {
+        exit('вы не зарегистрированы');
+    }
+
+    if($status != 1) {
+        exit('ваш аккаунт не подтвержден');
+    }
+}
+?>
+
 <div class="container mt-5">
     <h3>Пользователь: <?php echo $_COOKIE["user"]; ?>
     <h3>Почта: <?php echo $_COOKIE["email"]; ?></h3>
@@ -100,7 +129,7 @@
 </div>
 
 <div class="container">
-    <a href="#" class="nav-link px-8 link-secondary fw-bolder mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal3"><h3 class="text-danger">сбросить почту</h3></a>
+    <a href="#" class="nav-link px-8 link-secondary fw-bolder mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal3"><h3 class="text-danger">Cбросить почту</h3></a>
 <!-- сброс почты -->
     <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
             <div class="modal-dialog">
