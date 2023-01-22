@@ -25,7 +25,7 @@
 <div class="container">
     <a href="№" class="nav-link px-8 link-secondary fw-bolder mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal"><h3>Обратная связь</h3></a>
 
-<!-- Modal -->
+<!-- отправка формы для -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -61,7 +61,7 @@
 <div class="container">
     <a href="#" class="nav-link px-8 link-secondary fw-bolder mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal1"><h3 class="text-danger">Сбросить пароль</h3></a>
 
-<!-- Modal -->
+<!-- сброс пароля -->
     <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -99,6 +99,34 @@
     </div>
 </div>
 
+<div class="container">
+    <a href="#" class="nav-link px-8 link-secondary fw-bolder mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal3"><h3 class="text-danger">сбросить почту</h3></a>
+<!-- сброс почты -->
+    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel3">Сброс почты</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                        <div class="modal-body">
+
+                            <form action="forgotEmail.php" method="post">
+                                <div class="form-group col-md-8 m-2 mx-auto">
+                                    <label>Повторите новую почту</label>
+                                    <input name="email" type="email" class="form-control" placeholder="Введите почту">
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Выйти</button>
+                                    <button type="submit" class="btn btn-success">Отправить</button>
+                                </div>
+                            </form> 
+                        </div>
+                </div>
+            </div>
+    </div>
+</div>
 
 <form action="exit.php" method="POST">
 <div class="container mt-5">
