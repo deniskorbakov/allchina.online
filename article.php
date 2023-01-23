@@ -24,7 +24,7 @@ if (isset($_GET['page'])){
     $page = $_GET['page'];
  }else $page = 1;
 
-$kol = 3;
+$kol = 10;
 $art = ($page * $kol) - $kol;
 
 if (isset($_GET['page'])){
