@@ -1,22 +1,33 @@
 <?php
-
 require 'phpmailer/PHPMailer.php';
 require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
 
+$today = date("Y-m-d H:i:s");
+
+$result = substr($today, 0, 10);
+
+$startDate = "{$result} 00:00";
+
+$endDate = "{$result} 23:59";
+
 include_once 'connectionBD.php';
+
+$sql = "SELECT * FROM `article` WHERE `data_article` BETWEEN '$startDate' AND '$endDate'";
+$result = $mysql->query($sql);
+
+$quantityArticle = mysqli_num_rows($result);
 
 $sql = "SELECT * FROM `users`";
 
     if($result = $mysql->query($sql)) {
 
     foreach($result as $row) {
-
-        $message = "<a href='https://allchina.online'>Переход на страницу</a>";
-
-        $title = "Код подтверждения сайта allchina.online";
+        $message = "<a href='https://allchina.online/article.php'>Перейдите для ознакомление с новыми статьями</a>";
+        var_dump($row["email"]);
+        $title = "Новые статьи уже на сайте";
         $body = "
-        <b>Сообщение:</b><br> {$row["login"]} доброе утро $message
+        <b>Сообщение:</b><br> {$row["login"]} кол-во новых статей:$quantityArticle $message
         ";
     
         // Настройки PHPMailer
@@ -31,7 +42,7 @@ $sql = "SELECT * FROM `users`";
             // Настройки вашей почты
             $mail->Host       = 'smtp.mail.ru'; 
             $mail->Username   = 'helper-allchina@mail.ru'; 
-            $mail->Password   = 'a1QC4Yyve0eSsVQBi6xB'; 
+            $mail->Password   = '3xu4Bmmbm1WB8zpef5ZE'; 
             $mail->SMTPSecure = 'ssl';
             $mail->Port       = 465;
             $mail->setFrom('helper-allchina@mail.ru', 'allchina'); 
@@ -57,8 +68,6 @@ $sql = "SELECT * FROM `users`";
 
 
 }
-
-
 
 
     
