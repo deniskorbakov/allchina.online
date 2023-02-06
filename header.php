@@ -30,27 +30,24 @@
                         error_reporting(E_ERROR);
                         $login = $_COOKIE["user"];
                         $email = $_COOKIE["email"];
+                        $userstatus;
 
                         include_once 'connectionBD.php';
                         $sql = "SELECT `status` FROM `users` WHERE `login` = '$login' and `email` = '$email'";
                         if($result = $mysql->query($sql)) {
-                            foreach($result as $row) {
-                            $userlogin = $row["login"];
-                            $userpassword = $row["password"]; 
+                            foreach($result as $row) { 
                             $userstatus = $row["status"];
-                            $userEmail = $row["email"];
                             }
-                            
-                            if ($userstatus == 1) {
-                                echo '<li class="nav-item"><a class="nav-link active" aria-current="page" href="user_account.php">Кабинет пользователя</a></li>';
-                            }
-                            else {
-                                echo '<li class="nav-item"><a class="nav-link active" aria-current="page" href="aut.php">Авторизоваться</a></li>';
-                                echo '<li class="nav-item"><a class="nav-link active" href="reg.php">Зарегистрироваться</a></li>';
-                            }
-                            
                         }
-                        ?>
+                            
+                            if ($userstatus == 1) : ?>
+                                <li class="nav-item"><a class="nav-link active" aria-current="page" href="user_account.php">Кабинет пользователя</a></li>
+                            
+                            <?php else: ?>
+                                <li class="nav-item"><a class="nav-link active" aria-current="page" href="aut.php">Авторизоваться</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="reg.php">Зарегистрироваться</a></li>
+                                
+                            <?php endif ?> 
 		        </ul>		  
 		    </div>
         </div>
