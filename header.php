@@ -28,18 +28,29 @@
 		        <ul class="navbar-nav ms-auto">
                     <?php
                         error_reporting(E_ERROR);
+                        $login = $_COOKIE["user"];
+                        $email = $_COOKIE["email"];
 
-                        if ($_COOKIE['user'] != NULL) : ?>
-                        
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="user_account.php">Кабинет пользователя</a></li>
+                        include_once 'connectionBD.php';
+                        $sql = "SELECT `status` FROM `users` WHERE `login` = '$login' and `email` = '$email'";
+                        if($result = $mysql->query($sql)) {
+                            foreach($result as $row) {
+                            $userlogin = $row["login"];
+                            $userpassword = $row["password"]; 
+                            $userstatus = $row["status"];
+                            $userEmail = $row["email"];
+                            }
                             
-
-                        <?php else : ?>
-                        
-                            <li class="nav-item"><a class="nav-link active" aria-current="page" href="aut.php">Авторизоваться</a></li>
-                            <li class="nav-item"><a class="nav-link active" href="reg.php">Зарегистрироваться</a></li>
-                    
-                        <?php endif; ?>
+                            if ($userstatus == 1) {
+                                echo '<li class="nav-item"><a class="nav-link active" aria-current="page" href="user_account.php">Кабинет пользователя</a></li>';
+                            }
+                            else {
+                                echo '<li class="nav-item"><a class="nav-link active" aria-current="page" href="aut.php">Авторизоваться</a></li>';
+                                echo '<li class="nav-item"><a class="nav-link active" href="reg.php">Зарегистрироваться</a></li>';
+                            }
+                            
+                        }
+                        ?>
 		        </ul>		  
 		    </div>
         </div>
