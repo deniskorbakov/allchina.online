@@ -24,10 +24,9 @@ $sql = "SELECT * FROM `users`";
 
     foreach($result as $row) {
         $message = "<a href='https://allchina.online/article.php'>Перейдите для ознакомление с новыми статьями</a>";
-        var_dump($row["email"]);
         $title = "Новые статьи уже на сайте";
         $body = "
-        <b>Сообщение:</b><br> {$row["login"]} кол-во новых статей:$quantityArticle $message
+        <b>Сообщение:</b><br> {$row["login"]} кол-во новых статей: $quantityArticle $message
         ";
     
         // Настройки PHPMailer
@@ -40,12 +39,12 @@ $sql = "SELECT * FROM `users`";
             $mail->Debugoutput = function($str, $level) {$GLOBALS['status'][] = $str;};
     
             // Настройки вашей почты
-            $mail->Host       = 'smtp.mail.ru'; 
-            $mail->Username   = 'helper-allchina@mail.ru'; 
-            $mail->Password   = '3xu4Bmmbm1WB8zpef5ZE'; 
+            $mail->Host       = 'mail.hosting.reg.ru'; 
+            $mail->Username   = 'helper@allchina.online'; 
+            $mail->Password   = 'Pisospro322'; 
             $mail->SMTPSecure = 'ssl';
             $mail->Port       = 465;
-            $mail->setFrom('helper-allchina@mail.ru', 'allchina'); 
+            $mail->setFrom('helper@allchina.online', 'allchina'); 
     
             // Получатель письма
             $mail->addAddress($row["email"]);
