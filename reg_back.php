@@ -138,7 +138,7 @@ else {
         // Настройки вашей почты
         $mail->Host       = 'mail.hosting.reg.ru'; 
         $mail->Username   = 'helper@allchina.online'; 
-        $mail->Password   = 'Pisospro322'; 
+        $mail->Password   = 'pW3xA1sW2atZ9qD0'; 
         $mail->SMTPSecure = 'ssl';
         $mail->Port       = 465;
         $mail->setFrom('helper@allchina.online', 'allchina'); 
