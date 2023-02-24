@@ -32,6 +32,7 @@ if (isset($_GET['page'])){
  }else $page = 1;
 
 $res = mysqli_query($mysql,"SELECT COUNT(*) FROM `article`");
+$all = $res;
 $row = mysqli_fetch_row($res);
 $total = $row[0];
 
@@ -49,7 +50,7 @@ while ($row = mysqli_fetch_assoc($query)):
             <div class="container">
                 <h3><?=$row['description'];?></h3>
                 <em>Дата публикации: <?=$row['data_article'];?></em><br>
-                <em>Автор: <a href=""><?=$row['avtor'];?></a></em><br>
+                <em>Автор: <a href="<?=$row['avtor'];?>">Перейти к автору</a></em><br>
                 <a class="btn btn-success mt-3" href="article_view.php?id=<?=$row['id'];?>">Перейти к прочтению</a>
             </div>
         </article>
@@ -66,9 +67,15 @@ while ($row = mysqli_fetch_assoc($query)):
                 <ul class="pagination">
                     <?php
                         for ($i = 1; $i <= $str_pag; $i++){
-                            echo "<li class=page-item><a class=page-link href=article.php?page=".$i.">".$i."</a></li>";
+                            if($i < 6) {
+                                echo "<li class=page-item><a class=page-link href=article.php?page=".$i.">".$i."</a></li>";
+                            }
+                            $lastPage++;
                         }
+                        echo "<li class=page-item><a class=page-link>...</a></li>";
+                        echo "<li class=page-item><a class=page-link href=article.php?page=".$lastPage.">".$str_pag."</a></li>";
                     ?>
+                    
                 </ul>
             </nav>
         </div>
